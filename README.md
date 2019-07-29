@@ -2,8 +2,9 @@
 back-end do sistema de upload de arquivos
 
 
-### BUILD
-    **__npm start__**
+## BUILD
+   **npm start**
+    
 
-### START DEVELOPMENT MODE
-    **__npm run dev__**
+## START DEVELOPMENT MODE
+   **npm run dev**
