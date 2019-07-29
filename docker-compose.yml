@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  app:
+    container_name: express-mongo
+    restart: always
+    build: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/app
+    links:
+    - "mongo"
+  mongo:  
+    container_name: mongo
+    image: tutum/mongodb
+    ports:  
+      - "27017:27017"
+      - "28017:28017"  
+    volumes:  
+      - './data:/data/db'
+    environment:
+      - AUTH=no
+        
+  
+  

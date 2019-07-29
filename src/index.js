@@ -4,11 +4,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.listen(3000);
 app.use(bodyParser.json({limit: '5mb'}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
-
-app.get('/', ( req, res) => {
-    return res.status(200).send({ messsage : 'Ok'});
-});
+require('./App/routes/index')(app);
+app.listen(3000);
