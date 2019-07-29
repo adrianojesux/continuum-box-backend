@@ -10,5 +10,5 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 
 app.get('/', ( req, res) => {
-    return res.send({ messsage : 'Ok'});
+    return res.status(200).send({ messsage : 'Ok'});
 });
