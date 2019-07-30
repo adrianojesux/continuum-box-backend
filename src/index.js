@@ -8,4 +8,5 @@ app.use(bodyParser.json({limit: '5mb'}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 require('./App/routes/index')(app);
-app.listen(3000);
+const HOST = "0.0.0.0";
+app.listen(3000, HOST);

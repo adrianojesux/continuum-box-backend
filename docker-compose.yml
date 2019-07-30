@@ -5,7 +5,7 @@ services:
     container_name: express-mongo
     restart: always
     build: .
-    command: npm start
+    command: npm run dev
     ports:
       - "3000:3000"
     volumes:
