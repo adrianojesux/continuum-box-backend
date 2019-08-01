@@ -10,4 +10,5 @@ Para subir o projeto Node com o banco de dados Mongo sem precisar instala-los na
     
 
 ## START DEVELOPMENT MODE
+Dar build no projeto usando nodemon como dependecia de desenvolvimento para facilitar na codificação.
    **npm run dev**
