@@ -6,12 +6,16 @@ pipeline {
 
   }
   stages {
-    stage('') {
+    stage('Checkou e build') {
       steps {
         git(url: 'https://github.com/AdrianoJesus1994/continuum-box-backend.git', branch: 'master', changelog: true)
-        sh '''echo "Acionando o docker"
-docker-compose up
-echo "Finalizado"'''
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'dokcer rm -f express-mongo || true'
+        sh 'dokcer rm -f mongo || true'
+        sh 'docker-compose up'
       }
     }
   }
