@@ -1,7 +1,7 @@
 # continuum-box-backend
 back-end do sistema de upload de arquivos
 
-## START COM DOCKER
+## Inciar projeto com docker compose
   **docker-compose up**
 
 ## BUILD
