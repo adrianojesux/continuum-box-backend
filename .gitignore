@@ -1,2 +1,5 @@
 node_modules
 /data
+
+tmp/uploads/*
+!tmp/uploads/.gitkeep
