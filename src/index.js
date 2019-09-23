@@ -14,5 +14,5 @@ app.use(morgan('dev'));
 app.use("/files/", express.static(path.resolve(__dirname, "..", "tmp", "uploads")));
 
 require('./App/routes/index')(app);
-const HOST = "0.0.0.0";
-app.listen(3000, HOST);
+// const HOST = "0.0.0.0";
+app.listen(process.env.PORT || 3000);
