@@ -16,28 +16,29 @@ class ArchiveService {
         const { originalname: name, size, key, location: pathUrl = "" } = req.file;
         const { idBox } = req.params;
 
-        console.log({
-            title: name,
-            size,
-            key,
-            box: idBox,
-            pathUrl
-        });
+        try {
 
-        const archive = await Archive.create({
-            title: name,
-            size,
-            key,
-            box: idBox,
-            pathUrl
-        });
+            const box = await Box.findById(idBox);
 
-        const box = await Box.findById(idBox);
+            if(!box)
+                return res.status(400).send({ message: "Box informado inválido."});
 
-        box.archives.push(archive);
-        box.save();
-        
-        return res.send(archive);
+            const archive = await Archive.create({
+                title: name,
+                size,
+                key,
+                box: idBox,
+                pathUrl
+            });
+
+            box.archives.push(archive);
+            box.save();
+
+            return res.send(archive);
+            
+        } catch (error) {
+            return res.status(400).send({ message: "Ocorreu um erro.", error });
+        }
     }
 
     async listFromBox(req, res) {
